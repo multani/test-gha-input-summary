@@ -36,4 +36,4 @@ jobs:
         with:
           title: test
           description: blablabla
-          job-inputs: ${{ toJSON(inputs) }}
+          job-inputs: ${{ inputs }}
