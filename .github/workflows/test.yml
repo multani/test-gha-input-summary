@@ -4,12 +4,6 @@ on:
     inputs:
       aaaa:
         type: string
-      bbb:
-        type: string
-      ccc:
-        type: string
-      ddd:
-        type: string
       eee:
         type: boolean
       eeekk:
@@ -24,6 +18,7 @@ on:
           - option3
       ggg:
         type: number
+        default: 7897
         required: true
 
 
