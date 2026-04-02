@@ -1,0 +1,52 @@
+name: test
+on:
+  workflow_dispatch:
+    inputs:
+      aaaa:
+        type: string
+      bbb:
+        type: string
+      ccc:
+        type: string
+      ddd:
+        type: string
+      eee:
+        type: boolean
+
+      fff:
+        type: choice
+        options:
+          - option1
+          - option2
+          - option3
+      ggg:
+        type: number
+        required: true
+
+
+
+jobs:
+  summary:
+    name: Summary
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: { }
+    steps:
+      - name: Show summary
+        run: |
+          INPUTS=$(cat <<EOF | jq --sort-keys .
+          ${{ toJSON(inputs) }}
+          EOF
+          )
+
+          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
+          # configuration
+
+          Configured with:
+
+          ```json
+          ${INPUTS}
+          ```
+          EOF
+
+        
