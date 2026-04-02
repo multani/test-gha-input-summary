@@ -37,12 +37,12 @@ jobs:
 
           Configured with:
 
-          `\`\`json
+          \`\`\`json
           $(cat <<EOJ | jq --sort-keys .
           ${{ toJSON(inputs) }}
           EOJ
           )
-          `\`\`
+          \`\`\`
           EOF
 
         
