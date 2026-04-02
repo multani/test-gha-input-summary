@@ -32,17 +32,15 @@ jobs:
     steps:
       - name: Show summary
         run: |
-          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
-          # configuration
-
-          Configured with:
-
-          \`\`\`json
-          $(cat <<EOJ | jq --sort-keys .
+          INPUTS=$(cat <<EOF | jq --sort-keys .                                                                                                                                                                                               
           ${{ toJSON(inputs) }}
-          EOJ
-          )
-          \`\`\`
           EOF
 
-        
+          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
+          # config
+
+          test:
+
+          \`\`\`json
+          ${INPUTS}
+          \`\`\` 
