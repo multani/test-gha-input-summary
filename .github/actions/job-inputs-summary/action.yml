@@ -16,7 +16,7 @@ runs:
   steps:
     - name: Show summary
       env:
-        INPUTS: ${{ toJSON(inputs.job-inputs) }}
+        INPUTS: ${{ inputs.job-inputs }}
         TITLE: ${{ inputs.title }}
         DESCRIPTION: ${{ inputs.description }}
       shell: bash
