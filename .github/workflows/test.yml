@@ -30,16 +30,10 @@ jobs:
     timeout-minutes: 5
     permissions: {}
     steps:
+      - use: actions/checkout@v6
       - name: Show summary
-        env:
-          INPUTS: ${{ toJSON(inputs) }}
-        run: |
-          cat >> "$GITHUB_STEP_SUMMARY" <<EOF
-          # config
-
-          test:
-
-          \`\`\`json
-          $(jq --sort-keys <<< $INPUTS)
-          \`\`\`
-          EOF
+        uses: ./.github/actions/job-inputs-summary
+        with:
+          title: test
+          description: blablabla
+          job-inputs: ${{ inputs }}
