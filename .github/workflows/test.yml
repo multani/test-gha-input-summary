@@ -33,7 +33,7 @@ jobs:
     name: Summary
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    permissions: { }
+    permissions: {}
     steps:
       - name: Show summary
         run: |
@@ -42,12 +42,12 @@ jobs:
 
           Configured with:
 
-          ```json
-          $(cat <<EOF | jq --sort-keys .
+          `\`\`json
+          $(cat <<EOJ | jq --sort-keys .
           ${{ toJSON(inputs) }}
-          EOF
+          EOJ
           )
-          ```
+          `\`\`
           EOF
 
         
