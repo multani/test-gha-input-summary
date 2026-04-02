@@ -12,7 +12,10 @@ on:
         type: string
       eee:
         type: boolean
-
+      eeekk:
+        type: boolean
+        default: true
+        required: true
       fff:
         type: choice
         options:
