@@ -40,6 +40,6 @@ jobs:
           test:
 
           \`\`\`json
-          $(jq --sort-keys <<< ${{ toJSON(inputs) }})
+          $(jq --sort-keys <<< $INPUTS)
           \`\`\`
           EOF
