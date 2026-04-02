@@ -27,7 +27,7 @@ runs:
         ${DESCRIPTION}
 
         \`\`\`json
-        $(jq --sort-keys <<< $INPUTS)
+        $(jq --sort-keys <<< "$INPUTS")
         \`\`\`
         EOF
 
