@@ -31,17 +31,15 @@ jobs:
     permissions: {}
     steps:
       - name: Show summary
+        env:
+          INPUTS: ${{ toJSON(inputs) }}
         run: |
-          INPUTS=$(cat <<EOF | jq --sort-keys .
-          ${{ toJSON(inputs) }}
-          EOF
-
           cat >> "$GITHUB_STEP_SUMMARY" <<EOF
           # config
 
           test:
 
           \`\`\`json
-          ${INPUTS}
+          $(jq --sort-keys <<< ${{ toJSON(inputs) }})
           \`\`\`
           EOF
