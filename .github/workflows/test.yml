@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Show summary
         run: |
-          INPUTS=$(cat <<EOF | jq --sort-keys .                                                                                                                                                                                               
+          INPUTS=$(cat <<EOF | jq --sort-keys .
           ${{ toJSON(inputs) }}
           EOF
 
@@ -43,4 +43,5 @@ jobs:
 
           \`\`\`json
           ${INPUTS}
-          \`\`\` 
+          \`\`\`
+          EOF
